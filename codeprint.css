@@ -1,0 +1,163 @@
+
+body {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin: auto;
+	width: 96%;
+	height: 100%;
+
+}
+
+#canvas {
+	width: 96%;
+	height: 100%;
+	background-color: rgba(255, 0, 0, 0.0);
+	position: absolute;
+	z-index: 999;
+	cursor: crosshair;
+}
+
+#theCode {
+	width: 100%;
+
+	min-height: 200px;
+
+	font-family: monospace;
+	resize: both;
+
+}
+
+h1 {
+	-webkit-margin-after: 0px;
+}
+
+.noblock {
+	display: inline;
+}
+
+@media print {
+	.header,
+	.container,
+	footer,
+	#inputArea,
+	#hideBtn,
+	#printBtn {
+		display: none !important;
+	}
+}
+
+
+.button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.button:hover {
+  background-color: #059862;
+}
+
+.btnblue {background-color: #008CBA;} /* Blue */
+.btnblue:hover {background-color: #005689;} /* Blue */
+
+.btnred {
+  padding: 4px 20px;
+  background-color: white; 
+  color: black; 
+  border: 1px solid #f44336;
+}
+
+.btnred:hover {
+  background-color: #f44336; 
+  color: white; 
+  border: 1px solid #f44336;
+}
+
+.btnpink {
+  padding: 8px 20px;
+  background-color: #e75480; 
+  color: #dddddd; 
+}
+
+.btnpink:hover {
+  background-color: #e75480; 
+  color: white; 
+}
+
+.container {
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  background-color: #f8f8f8;
+  padding: 30px;
+  width: 96%;
+}
+
+input[type=text]{
+	font-size: 14px;
+	width: 99%;
+	padding: 8px;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	margin-top: 4px;
+}
+
+.header {
+  overflow: hidden;
+  background-color: #009ba9; /* or set #127CBD */
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}	
+
+textarea{
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #ffffff;
+  resize: none;
+  margin-top: 8px;
+}
+
+label{
+	font-weight: bold;
+	
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  background-color: #444444;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;	  
+}	
+
+footer a{
+	color: white;	
+}
+
+#inputArea {
+	font-size: 16px;	
+}
+
+.selectbox {
+	width: 100px;
+	height: 25px;
+	border: 1px solid red;
+	font-size: 15px;
+	color: brown;
+	background-color: #ffffff;
+	border-radius: 4px;
+}

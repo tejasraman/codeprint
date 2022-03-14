@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<link href="prism.css" rel="stylesheet" />
+	<link href="codeprint.css" rel="stylesheet" />
+
+	<script src="https://code.jquery.com/jquery-3.1.1.js"
+		integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+	<script src="prism.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify.min.js"></script>
+	
+	<!-- Baker Check out http://jsfiddle.net/KJW4E/905/ for clipboard image paste -->
+	<!-- And here's a way to make images draggable http://jsfiddle.net/Zevan/QZejF/3/  -->
+
+	<title>AP PT CodePrint</title>
+	<meta name="description" content="Print Javascript code in pdf format">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-25MHBPXJTS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-25MHBPXJTS');
+</script>
+	
+</head>
+
+<body>
+
+<div class="header">
+AP PT CodePrint
+</div> <br>
+
+<div class="container">
+
+	<div id="inputArea">
+	A one-stop shopping browser tool for preparing your code to submit for the AP CSP Performance Tasks.
+	If you can print a PDF from the browser, this should be everything you need. <br><br><br>
+
+<label>Project Title (optional):</label>
+<input type="text" id="projTitleInput" placeholder="Project title/App name"><br><br>
+<label for="licensee">Other Text (optional):</label>
+<input type="text" id="otherTextInput" placeholder="Description/Other text"><br><br>
+<label>JavaScript Code (type or paste your code here):</label>
+<textarea id="theCode">
+var difficulty = 15;
+var correctSquare;
+var p1Score = 0;
+var p2Score = 0;
+var currentPlayer = 1;
+
+function updateScore(scoreChange){
+  if(currentPlayer == 1){
+    p1Score += scoreChange;
+    setText("score1", p1Score);
+  }
+  else{
+    p2Score += scoreChange;
+    setText("score2", p2Score);
+  }
+}
+</textarea><br><br>
+		<b>Steps:</b>
+		<ol>
+		<li>Set font size and draw shapes on the code.</li>
+		<li>Prettify Code, it will do nice code formatting.</li>
+		<li>Check your code, make sure everything is correct.</li>
+		<li>Hide the controls.</li>
+		<li>Print to PDF from the browser.</li>
+		</ol>
+		<b>Note:</b> It is highly recommended that you only use one rect and one oval for the AP Performance task to avoid confusing the reader.
+		However, in some circumstances your abstraction or algorithm may get split up, requiring you to need more than one shape to mark the appropriate sections.<br>	
+		<br>
+		<b>Customize Code:</b><br><br>
+		<b>Font Size:</b> <input class="round" id="fontSize" type="range" min="1" max="40" step="1" value="12">
+		<span id="fontSizeDisplay">12px</span> <br>
+		<b>Draw Shape:</b> <select class="selectbox" name="drawShapeToggle">
+			<option value="Rect">Rect</option>
+			<option value="Rect2">Rect 2</option>
+			<option value="Rect3">Rect 3</option>
+			<option value="Oval">Oval</option>
+			<option value="Oval2">Oval 2</option>
+			<option value="Oval3">Oval 3</option>
+		</select>
+
+		<button class="button btnred" id="clearCurrent">Clear Rect</button> <button class="button btnred" id="clearAll">Clear All</button><br>
+		<button	class="button btnpink" id="doitnew">Prettify Code</button> if you don't see the code being laid out prettily below.
+	
+		<!--
+<input type="radio" name="drawShapeToggle" value="rect" checked>Rectangle <input type="radio" name="drawShapeToggle" value="oval">Oval <input type="radio" name="drawShapeToggle" value="oval2">Oval 2 <button id="clearRect">Clear Rect</button> <button id="clearOval">Clear Oval</button>
+-->
+	</div></div>
+	
+	<div>
+	<button class="button btnblue" id="hideBtn">Hide/Show Controls</button>   <button class="button" id="printBtn" value="Print" onClick="window.print()">Print Code</button>
+	</div>
+	<hr>
+	<h1 id="projTitle"></h1>
+	<em><span id="otherText"></span></em><br>
+	<svg id="canvas">
+		<rect id="myOval" cx="0" cy="0" rx="150" ry="100" stroke="rgba(0,0,255,0.5)" stroke-width="4"
+			fill="rgba(0,0,0,0)" />
+		<rect id="myOval2" cx="0" cy="0" rx="150" ry="100" stroke="rgba(0,100,255,0.5)" stroke-width="4"
+			fill="rgba(0,0,0,0)" />
+		<rect id="myOval3" cx="0" cy="0" rx="150" ry="100" stroke="rgba(100,0,255,0.5)" stroke-width="4"
+			fill="rgba(0,0,0,0)" />
+
+		<rect id="myRect" x="0" y="0" width="0" height="0" stroke="rgba(255,0,0,0.5)" stroke-width="3"
+			fill="rgba(0,0,0,0)" />
+		<rect id="myRect2" x="0" y="0" width="0" height="0" stroke="rgba(255,0,100,0.5)" stroke-width="3"
+			fill="rgba(0,0,0,0)" />
+		<rect id="myRect3" x="0" y="0" width="0" height="0" stroke="rgba(255,100,0,0.5)" stroke-width="3"
+			fill="rgba(0,0,0,0)" />
+
+	</svg>
+
+<pre id="outerPrettyArea" class="line-numbers language-javascript">
+<code id="prettyArea" class="language-javascript"></code>
+</pre>
+
+	<hr>
+	<em>PDF</em> document made with <a href="https://samanyuw.github.io/codeprint/">CodePrint</a> using <a href="http://prismjs.com">prismjs</a> and <a href="https://github.com/beautify-web/js-beautify">js-beautify</a>
+	
+
+	<!-- 
+<hr><hr>
+1. Copy image data into clipboard or press Print Screen <br>
+2. Press Ctrl+V (page/iframe must be focused):
+<br /><br />
+<canvas style="border:1px solid grey;" id="my_canvas" width="300" height="300"></canvas>
+
+-->
+
+<script src="codeprint.js"></script>
+
+</body>
+
+<footer>
+  <p>Credits: <a href=" https://github.com/bakerfranke">Baker Franke</a> and <a href="https://github.com/samanyuw/codeprint/graphs/contributors">Github Contributors</a></p>
+</footer>
+
+</html>
