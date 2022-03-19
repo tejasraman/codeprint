@@ -42,6 +42,7 @@ h1 {
 	footer,
 	#inputArea,
 	#hideBtn,
+	#doitnew,
 	#printBtn {
 		display: none !important;
 	}
