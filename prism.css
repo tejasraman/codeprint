@@ -21,7 +21,7 @@ pre[class*="language-"] {
 	-o-tab-size: 4;
 	tab-size: 4;
 
-	white-space: pre-wrap !important;
+/* 	white-space: pre-wrap !important; */
 	overflow: auto !important;
 	text-wrap: balance !important;
 /* 	overflow-wrap: break-word; */
