@@ -24,7 +24,7 @@ pre[class*="language-"] {
 	white-space: pre-wrap !important;
 	overflow: auto !important;
 	text-wrap: balance !important;
-	overflow-wrap: break-word;
+/* 	overflow-wrap: break-word; */
 	
 	-webkit-hyphens: none;
 	-moz-hyphens: none;
