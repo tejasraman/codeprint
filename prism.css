@@ -12,7 +12,6 @@ pre[class*="language-"] {
 	text-shadow: 0 1px white;
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	text-align: left;
-	white-space: pre;
 	word-spacing: normal;
 	word-break: normal;
 	word-wrap: break-word;
@@ -24,7 +23,7 @@ pre[class*="language-"] {
 
 	white-space: wrap;
 	overflow: auto;
-	word-break: break-word;
+	text-wrap: balance;
 	-webkit-hyphens: none;
 	-moz-hyphens: none;
 	-ms-hyphens: none;
