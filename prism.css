@@ -21,7 +21,7 @@ pre[class*="language-"] {
 	-o-tab-size: 4;
 	tab-size: 4;
 
-	white-space: wrap !important;
+	white-space: pre-line !important;
 	overflow: auto !important;
 	text-wrap: balance !important;
 	-webkit-hyphens: none;
