@@ -205,6 +205,7 @@ pre[data-line] {
 .line-numbers .line-highlight:before,
 .line-numbers .line-highlight:after {
 	content: none;
+	
 }
 
 pre[id].linkable-line-numbers span.line-numbers-rows {
@@ -234,6 +235,7 @@ pre[class*="language-"].line-numbers > code {
 	top: 0;
 	font-size: 100%;
 	left: -3.8em;
+	height: 0px !important;
 	width: 3em; /* works for line-numbers below 1000 lines */
 	letter-spacing: -1px;
 	border-right: 1px solid #999;
