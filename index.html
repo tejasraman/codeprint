@@ -30,35 +30,18 @@
 	A browser tool to prepare PDF source code submissions for the AP Computer Science Principles Create Task. <br><br> This utility is based upon Baker Franke's original CodePrint utility with slight functionality improvements (including support for extra programming languages, such as Python).<br><br><br>
 
 <label>Project Title (optional):</label>
-<input type="text" id="projTitleInput" placeholder="Project title/App name"><br><br>
+<input type="text" id="projTitleInput" placeholder="Title of your project"><br><br>
 <label for="licensee">Other Text (optional):</label>
-<input type="text" id="otherTextInput" placeholder="Description/Other text"><br><br>
+<input type="text" id="otherTextInput" placeholder="Description of your project (optional)"><br><br>
 <label>Code (type or paste your code here):</label>
-<textarea id="theCode">
-var difficulty = 15;
-var correctSquare;
-var p1Score = 0;
-var p2Score = 0;
-var currentPlayer = 1;
-
-function updateScore(scoreChange){
-  if(currentPlayer == 1){
-    p1Score += scoreChange;
-    setText("score1", p1Score);
-  }
-  else{
-    p2Score += scoreChange;
-    setText("score2", p2Score);
-  }
-}
+<textarea id="theCode" spellcheck="false" autocapitalize="false" autocomplete="false" autocorrect="false" placeholder="Paste your code here">
 </textarea><br><br>
 		<b>Steps:</b>
 		<ol>
-		<li>Set font size and draw shapes on the code.</li>
-		<li>Beautify Code, it will do nice code formatting.</li>
-		<li>Check your code, make sure everything is correct.</li>
-		<li>Hide the controls.</li>
-		<li>Print to PDF from the browser.</li>
+		<li>Paste your code into the text box above.</li>
+		<li>Check your code to make sure that it meets the Create Task requirements.</li>
+		<li>Draw shapes on the PDF to highlight important code segments (if applicable)</li>
+		<li>Print to PDF from the browser by clicking the "Print Code" button.</li>
 		</ol>
 		<b>Note:</b> It is highly recommended that you only use one rect and one oval for the AP Performance task to avoid confusing the reader.
 		However, in some circumstances your abstraction or algorithm may get split up, requiring you to need more than one shape to mark the appropriate sections.<br>	
