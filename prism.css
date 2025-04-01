@@ -6,12 +6,22 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
  * @author Lea Verou
  */
 
+ @font-face {
+	font-display: swap;
+	font-family: 'Cascadia Code';
+	font-style: normal;
+	font-weight: 400;
+	src: url('fonts/CascadiaCode.woff2') format('woff2'); 
+  }
+  
+
+
 code[class*="language-"],
 pre[class*="language-"] {
 	color: black;
 	background: none;
 	text-shadow: 0 1px white;
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-family: "Cascadia Code", monospace;
 	font-size: 1em;
 	text-align: left;
 	/* 	white-space: pre; */

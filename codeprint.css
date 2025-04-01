@@ -1,12 +1,33 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/mulish-v13-latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 600;
+  src: url('fonts/mulish-v13-latin-600.woff2') format('woff2'); 
+}
+
+:root {
+  color-scheme: dark;
+}
+
 
 body {
 
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Mulish", sans-serif;
 	font-size: 12px;
 	margin: auto;
 	width: 96%;
 	height: 100%;
-
+  background-color: #000000;
+  color: white;
+  
 }
 
 #canvas {
@@ -23,8 +44,11 @@ body {
 
 	min-height: 200px;
 
-	font-family: monospace;
+	font-family: "Cascadia Code", monospace;
 	resize: both;
+  background-color: #424242;
+  border: none;
+  color: #ffffff;
 
 }
 
@@ -97,7 +121,7 @@ h1 {
 
 .container {
 
-  background-color: #f0f0f0;
+  background-color: #242424;
   padding: 28px;
   width: 96%;
 }
@@ -106,7 +130,8 @@ input[type=text]{
 	font-size: 14px;
 	width: 99%;
 	padding: 8px;
-	border: 2px solid #ccc;
+  background-color: #424242;
+  color: #ffffff;
 	border-radius: 4px;
 	margin-top: 4px;
 }
