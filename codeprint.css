@@ -56,12 +56,12 @@ h1 {
 	-webkit-margin-after: 0px;
 }
 
-@media print {
+/* @media print {
   pre {
     break-inside: avoid;
   }
 }
-
+ */
 .noblock {
 	display: inline;
 }
