@@ -27,6 +27,7 @@ body {
 	height: 100%;
   background-color: #000000;
   color: white;
+	-webkit-print-color-adjust: exact; 
   
 }
 
