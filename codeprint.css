@@ -79,6 +79,7 @@ body {
 	height: 100%;
   background-color: var(--md-sys-color-background);
   color: white;
+	-webkit-print-color-adjust: exact; 
   
 }
 
@@ -161,6 +162,7 @@ h1 {
 
 .prism85 {
   width: 8.5in;
+  background-color: white;
   
 }
 
