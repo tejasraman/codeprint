@@ -7,6 +7,7 @@
 	
 	<link href="prism.css" rel="stylesheet" />
 	<link href="codeprint.css" rel="stylesheet" />
+	<link href="material/dark.css" rel="stylesheet" />
 
 	<script src="https://code.jquery.com/jquery-3.1.1.js"
 		integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
@@ -17,9 +18,24 @@
 	<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d1dedae45a4845b4a1dfcaa02cd41a8b"}'></script>
 	<!-- End Cloudflare Web Analytics -->
 
+	<!-- Material Web Components -->
+	   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+	<script type="importmap">
+		{
+		"imports": {
+			"@material/web/": "https://esm.run/@material/web/"
+		}
+		}
+	</script>
+	<script type="module">
+		import '@material/web/all.js';
+		import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+
+		document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+	</script>
 	
 	<title>CodePrint++ - PDF code printing utility</title>
-	<meta name="description" content="Print Javascript code in pdf format">
+	<meta name="description" content="Print code in PDF format">
 
 </head>
 
@@ -32,15 +48,27 @@
 <div class="container">
 
 	<div id="inputArea">
+		<br>
 	A browser tool to prepare PDF source code submissions for the AP Computer Science Principles Create Task. <br><br> This utility is based upon Baker Franke's original CodePrint utility with slight functionality improvements.<br><br><br>
 
-<label>Project Title (optional):</label>
-<input type="text" id="projTitleInput" placeholder="Title of your project"><br><br>
-<label for="licensee">Other Text (optional):</label>
-<input type="text" id="otherTextInput" placeholder="Description of your project (optional)"><br><br>
-<label>Code (type or paste your code here):</label>
-<textarea id="theCode" spellcheck="false" autocapitalize="false" autocomplete="false" autocorrect="false" placeholder="Paste your code here">
-</textarea><br><br>
+<md-filled-text-field
+	id="projTitleInput" class="textInp"
+    rows="1"  label="Project title (optional)" autocomplete="off">
+	</md-filled-text-field> <br><br>
+<md-filled-text-field
+	id="otherTextInput" class="textInp"
+    rows="1" label="Project description (optional)" autocomplete="off">
+	</md-filled-text-field> <br><br>
+<md-filled-text-field
+    type="textarea"
+    rows="3"
+	id="theCode" spellcheck="false" autocapitalize="false" autocomplete="off" autocorrect="false" label="Code (type or paste your code here):">
+	</md-filled-text-field><br><br>
+	<md-filled-select [(ngModel)]="selectedValue" class="selectbox fixedheightbuttons" id="languageSelect" required>
+  		<md-select-option selected value="js">JavaScript / P5.js</md-select-option>
+		<md-select-option value="py">Python</md-select-option>
+		</md-filled-select>
+		<br>
 		<b>Steps:</b>
 		<ol>
 		<li>Paste your code into the text box above.</li>
@@ -51,31 +79,46 @@
 		<b>Note:</b> It is highly recommended that you only use one rect and one oval for the AP Performance task to avoid confusing the reader.
 		However, in some circumstances your abstraction or algorithm may get split up, requiring you to need more than one shape to mark the appropriate sections.<br>	
 		<br>
-		<b>Customize Code:</b><br><br>
-		<b>Font Size:</b> <input class="round" id="fontSize" type="range" min="1" max="40" step="1" value="12">
+		<h2>Customize Code:</h2>
+		<b>Code Font Size:</b> <md-slider id="fontSize" step="1" ticks min="12" max="40"></md-slider>
 		<span id="fontSizeDisplay">12px</span> <br>
-		<b>Draw Shape:</b> <select class="selectbox" name="drawShapeToggle">
+
+		<b>Draw Shape: &nbsp;&nbsp;</b> 
+		<!-- <select class="selectbox" name="drawShapeToggle">
 			<option value="Rect">Rect</option>
 			<option value="Rect2">Rect 2</option>
 			<option value="Rect3">Rect 3</option>
 			<option value="Oval">Oval</option>
 			<option value="Oval2">Oval 2</option>
 			<option value="Oval3">Oval 3</option>
-		</select>
+		</select> -->
 
-		<button class="button btnred" id="clearCurrent">Clear Rect</button> <button class="button btnred" id="clearAll">Clear All</button><br>
-	
+		<md-filled-select [(ngModel)]="selectedValue" class="selectbox fixedheightbuttons" name="drawShapeToggle">
+  		<md-select-option value="Rect">Rect</md-select-option>
+			<md-select-option value="Rect2">Rect 2</md-select-option>
+			<md-select-option value="Rect3">Rect 3</md-select-option>
+			<md-select-option value="Oval">Oval</md-select-option>
+			<md-select-option value="Oval2">Oval 2</md-select-option>
+			<md-select-option value="Oval3">Oval 3</md-select-option>
+		</md-filled-select>
+		<br>
+		<!-- <button class="button btnred" id="clearCurrent">Clear Rect</button> <button class="button btnred" id="clearAll">Clear All</button><br> -->
+		<md-filled-tonal-button id="clearCurrent" class="fixedheightbuttons">Clear Rectangle</md-filled-tonal-button>
+		<md-filled-tonal-button id="clearAll" class="fixedheightbuttons">Clear All</md-filled-tonal-button>
 		<!--
 <input type="radio" name="drawShapeToggle" value="rect" checked>Rectangle <input type="radio" name="drawShapeToggle" value="oval">Oval <input type="radio" name="drawShapeToggle" value="oval2">Oval 2 <button id="clearRect">Clear Rect</button> <button id="clearOval">Clear Oval</button>
 -->
 	</div></div>
-	
 	<div>
-	<button class="button btnblue" id="hideBtn">Hide/Show Controls</button>   
-	<button	class="button btnpink" id="doitnew">Beautify Code</button>		
-	<button class="button" id="printBtn" value="Print" onClick="window.print()">Print Code</button>
+	<br>
+	<md-filled-tonal-button class="button btnblue" id="hideBtn">Hide/Show Controls</md-filled-tonal-button>   
+	<md-filled-tonal-button	class="button btnpink" id="doitnew">Beautify Code</md-filled-tonal-button>		
+	<md-filled-button class="button" id="printBtn" value="Print" onClick="window.print()">Print Code</md-filled-button>
+	<br>
+	<br>
 	</div>
 	<hr>
+	<div class="box">
 	<h1 id="projTitle"></h1>
 	<em><span id="otherText"></span></em><br>
 	<svg id="canvas">
@@ -100,14 +143,14 @@
 <code id="prettyArea" class="language-javascript"></code>
 </pre>
 </div>
-	
+	</div>
 
 <script src="codeprint.js"></script>
 
 </body>
 
-<footer>
+<div class="footer">
   <p>Credits: Baker Franke (original version), Tejas Raman</a></p>
-</footer>
+</div>
 
 </html>
